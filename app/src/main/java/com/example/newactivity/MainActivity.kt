@@ -30,6 +30,20 @@ class MainActivity : AppCompatActivity() {
             startActivity(myIntent)
         }
 
+//        CALL 액션 예제
+        callBtn.setOnClickListener {
+
+//            phoneNumEdt에 입력한 전화번호를 바아서 -> 해당 번호에 전화 연결
+
+            val inputPhoneNum = phoneNumEdt.text.toString()
+
+            val myUri = Uri.parse("tel:${inputPhoneNum}")
+
+            val myIntent = Intent(Intent.ACTION_CALL, myUri)
+
+            startActivity(myIntent)
+        }
+
         editNicknameBtn.setOnClickListener {
 
 
