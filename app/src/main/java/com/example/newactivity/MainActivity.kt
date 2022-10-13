@@ -15,11 +15,24 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        smsBtn.setOnClickListener {
+//
+
+            val inputPhoneNum = phoneNumEdt.text.toString()
+            val myUri = Uri.parse("smsto:${inputPhoneNum}")
+            val myIntent = Intent(Intent.ACTION_SENDTO, myUri)
+
+            myIntent.putExtra("sms_body", "hello my friend")
+
+            startActivity(myIntent)
+        }
+
+
 //        DIAL 액션 예제
 
         dialBtn.setOnClickListener {
 
-//            phoneNumEdt에 입력한 전화번호를 바아서 -> 해당 번호에 전화 연결
+//            phoneNumEdt에 입력한 전화번호를 받아서 -> 해당 번호에 전화 연결
 
             val inputPhoneNum = phoneNumEdt.text.toString()
 
